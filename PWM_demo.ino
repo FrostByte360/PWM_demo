@@ -20,7 +20,7 @@ const uint8_t LED = 32;
 const uint16_t FREQ = 5000;
 const uint8_t RES = 8;
 int t_delay = 400;
-int fade = 5;
+int fade_effect = 5;
 int bright = 0;
 
 void setup() {
@@ -29,10 +29,10 @@ void setup() {
 
 void loop() {
   ledcWrite(LED, bright);
-  bright += fade;
+  bright += fade_effect;
 
   if (bright >= 255 || bright <= 0)  {
-    fade -= fade;
+    bright -= fade_effect;
   }
 
   delay(t_delay);
